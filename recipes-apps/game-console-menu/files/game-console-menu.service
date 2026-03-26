@@ -1,0 +1,14 @@
+[Unit]
+Description=Game Console Menu
+After=local-fs.target systemd-user-sessions.service
+
+[Service]
+Type=simple
+User=root
+Environment=HOME=/root
+ExecStart=/usr/bin/start-game-console.sh
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
