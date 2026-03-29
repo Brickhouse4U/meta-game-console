@@ -6,7 +6,9 @@ IMAGE_INSTALL:append = " \
     xserver-xorg \
     xserver-xorg-extension-glx \
     xf86-video-fbdev \
+    xf86-video-armsoc \
     xinit \
+    xrandr \
     matchbox-wm \
     connman \
     connman-client \
@@ -16,6 +18,7 @@ IMAGE_INSTALL:append = " \
     gtk+3 \
     pango \
     cups \
+    brightness-state \
     game-console-menu \
 "
 
