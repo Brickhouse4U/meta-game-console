@@ -2,6 +2,7 @@ SUMMARY = "Game Console Menu Electron App"
 DESCRIPTION = "Electron + React game console launcher"
 LICENSE = "CLOSED"
 
+# Skip QA checks — the Electron binary is pre-built and pre-stripped
 INSANE_SKIP:${PN} = "already-stripped file-rdeps ldflags arch"
 INHIBIT_PACKAGE_STRIP = "1"
 INHIBIT_SYSROOT_STRIP = "1"
@@ -21,6 +22,7 @@ inherit systemd
 SYSTEMD_SERVICE:${PN} = "game-console-menu.service"
 SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
+# System libraries that Electron needs from the OS
 RDEPENDS:${PN} = " \
     libx11 \
     libxcomposite \
@@ -42,15 +44,18 @@ RDEPENDS:${PN} = " \
 "
 
 do_install() {
+    # Install extracted Electron app
     install -d ${D}/opt/game-console-menu
     cp -r ${WORKDIR}/squashfs-root/. ${D}/opt/game-console-menu/
 
+    # Install launcher scripts
     install -d ${D}${bindir}
     install -m 0755 ${WORKDIR}/start-game-console.sh \
         ${D}${bindir}/start-game-console.sh
     install -m 0755 ${WORKDIR}/start-app.sh \
         ${D}${bindir}/start-app.sh
 
+    # Install systemd service
     install -d ${D}${systemd_system_unitdir}
     install -m 0644 ${WORKDIR}/game-console-menu.service \
         ${D}${systemd_system_unitdir}/game-console-menu.service
