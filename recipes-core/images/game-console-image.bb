@@ -7,6 +7,7 @@ IMAGE_INSTALL:append = " \
     xserver-xorg-extension-glx \
     xf86-video-fbdev \
     xinit \
+    xrandr \
     matchbox-wm \
     connman \
     connman-client \
@@ -16,6 +17,8 @@ IMAGE_INSTALL:append = " \
     gtk+3 \
     pango \
     cups \
+    i2c-tools \
+    ddcutil \
     game-console-menu \
 "
 
