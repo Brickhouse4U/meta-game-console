@@ -1,6 +1,7 @@
 SUMMARY = "Game Console Menu Electron App"
 DESCRIPTION = "Electron + React game console launcher"
 LICENSE = "CLOSED"
+PV = "1.0.5"
 
 INSANE_SKIP:${PN} = "already-stripped file-rdeps ldflags arch"
 INHIBIT_PACKAGE_STRIP = "1"

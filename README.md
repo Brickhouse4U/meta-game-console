@@ -526,12 +526,12 @@ source /mnt/yoctobuild/poky/oe-init-build-env /mnt/yoctobuild/poky/build
 
 # 2. Build the Electron app AppImage on dev machine
 cd ~/ReactProjects/ElectronProjects/game-console-menu
-npm run package:pi   # produces dist/Game-Console-Menu-1.0.0-armv7l.AppImage
+npm run package:pi   # produces dist/Game-Console-Menu-1.0.5-armv7l.AppImage
 
 # 3. Extract the AppImage (cannot run arm binary on x86)
-OFFSET=$(grep -boa 'hsqs' dist/Game-Console-Menu-1.0.0-armv7l.AppImage | head -1 | cut -d: -f1)
+OFFSET=$(grep -boa 'hsqs' dist/Game-Console-Menu-1.0.5-armv7l.AppImage | head -1 | cut -d: -f1)
 rm -rf squashfs-root
-unsquashfs -offset $OFFSET dist/Game-Console-Menu-1.0.0-armv7l.AppImage
+unsquashfs -offset $OFFSET dist/Game-Console-Menu-1.0.5-armv7l.AppImage
 
 # 4. Copy extracted app to Yocto layer
 rm -rf /mnt/yoctobuild/poky/meta-game-console/recipes-apps/game-console-menu/files/squashfs-root
@@ -579,9 +579,9 @@ cd ~/ReactProjects/ElectronProjects/game-console-menu
 npm run package:pi
 
 # 2. Re-extract
-OFFSET=$(grep -boa 'hsqs' dist/Game-Console-Menu-1.0.0-armv7l.AppImage | head -1 | cut -d: -f1)
+OFFSET=$(grep -boa 'hsqs' dist/Game-Console-Menu-1.0.5-armv7l.AppImage | head -1 | cut -d: -f1)
 rm -rf squashfs-root
-unsquashfs -offset $OFFSET dist/Game-Console-Menu-1.0.0-armv7l.AppImage
+unsquashfs -offset $OFFSET dist/Game-Console-Menu-1.0.5-armv7l.AppImage
 
 # 3. Update Yocto layer
 rm -rf /mnt/yoctobuild/poky/meta-game-console/recipes-apps/game-console-menu/files/squashfs-root
