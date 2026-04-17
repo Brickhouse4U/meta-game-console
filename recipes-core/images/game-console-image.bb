@@ -8,6 +8,10 @@ IMAGE_INSTALL:append = " \
     xf86-video-fbdev \
     xinit \
     xrandr \
+    alsa-lib \
+    alsa-utils \
+    alsa-plugins \
+    kernel-module-snd-bcm2835 \
     matchbox-wm \
     connman \
     connman-client \
@@ -19,6 +23,7 @@ IMAGE_INSTALL:append = " \
     cups \
     i2c-tools \
     ddcutil \
+    audio-init \
     game-console-menu \
 "
 
