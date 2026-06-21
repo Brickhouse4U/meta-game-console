@@ -25,6 +25,10 @@ IMAGE_INSTALL:append = " \
     ddcutil \
     audio-init \
     game-console-menu \
+    python3 \
+    python3-pygame \
+    kernel-module-xpad \
+    picube-mount \
 "
 
 IMAGE_FEATURES:append = " \
